@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Zaroorat | Admin Panel</title>
+        <title>test | Admin Panel</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -51,7 +51,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="admin/dashboard/change_password">
+                                    <a href="{{ URL::route('profile') }}">
                                         <i class="icon-lock"></i> Profile </a>
                                 </li>
                                 <li>
