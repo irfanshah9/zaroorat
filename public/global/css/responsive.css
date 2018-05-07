@@ -1,0 +1,14 @@
+@media screen and (max-width: 767px) {
+    .portlet.light>.portlet-title>.actions {
+        padding-bottom: 0;
+    }
+    .actions a {
+        margin-bottom: 10px;
+    }
+    .a_rs767_mb10 {
+        margin-bottom: 10px;
+    }
+    .a_rs767_p0 {
+        padding: 0;
+    }
+}
