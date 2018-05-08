@@ -19,4 +19,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
-Route::get('/profile', 'Admin\ProfileController@index')->name('profile');
