@@ -23,7 +23,12 @@
         </h3>
         <div class="portlet light portlet-fit portlet-form bordered">
             <div class="portlet-body">
-                <form action="" id="form_change_password"  class="form-horizontal" method="post" autocomplete="off">
+                @if ($errors->any())
+        {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
+                <form action="{{route('profile.update',$user)}}" id="form_change_password"  class="form-horizontal" method="post" autocomplete="off">
+                    {{ csrf_field() }}
+                    {{ method_field('patch') }}
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
@@ -34,17 +39,7 @@
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" id="name" name="name" > </div>
-                            </div>
-                        </div>
-                        <div class="form-group  margin-top-20">
-                            <label class="control-label col-md-3">Username 
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-4">
-                                <div class="input-icon right">
-                                    <i class="fa"></i>
-                                    <input type="text" class="form-control" name="userName" id="userName" value="" /> </div>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}"> </div>
                             </div>
                         </div>
                         <div class="form-group  margin-top-20">
@@ -54,7 +49,7 @@
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="email" class="form-control" id="email" name="email" value="" /> </div>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group  margin-top-20">
