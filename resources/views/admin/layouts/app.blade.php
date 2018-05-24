@@ -76,18 +76,57 @@
                         <?php
                        // if (preg_grep("/Dashboard/i", $modules)) {
                             $active = '';
-//                            if ($this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == 'dashboard') {
-//                                $active = 'active';
-//                            }
+                            if (Request::segment(1) == 'Dashboard' || Request::segment(1) == 'dashboard') {
+                                $active = 'active';
+                            }
                             ?>
                             <li class="nav-item custom start <?= $active; ?> open">
-                                <a href="#" class="nav-link nav-toggle">
+                                <a href="{{url('admin/dashboard')}}" class="nav-link nav-toggle">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
+                       <?php
+                            $active = '';
+                           // if (Request::segment(1) == 'Dashboard' || Request::segment(1) == 'dashboard') {
+                          //      $active = 'active';
+                          //  }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Electrician Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                    
+                                    ?>
+                                    <li class="nav-item start ">
+                                        <a href="" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Electricians </span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                   
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/add_electrician')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Electrician</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                      </ul>
+                  
                 </div>
             </div>
             @yield('content')

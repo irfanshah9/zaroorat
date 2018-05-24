@@ -18,7 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
-Route::get('/profile', 'Admin\ProfileController@index')->name('profile');
+Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('dashboard');
+Route::get('admin/add_electrician', 'Admin\ElectricianController@add_electrician')->name('add_electrician');
+Route::get('admin/profile', 'Admin\ProfileController@index')->name('profile');
 Route::patch('update/{user}','Admin\ProfileController@update')->name('profile.update');
 Route::get('/logout', 'Auth\LoginController@logout');

@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>test | Admin Panel</title>
+        <title>Zaroorat | Admin Panel</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -68,7 +68,7 @@
                 </div>
             </form>
  </div>
-        <div class="copyright"> 2018 © test by <a target="blank" href="https://www.purelogics.net/">PureLogics</a></div>
+        <div class="copyright"> 2018 © zaroorat by <a target="blank" href="https://www.purelogics.net/">PureLogics</a></div>
         <script src="{{ asset('global/plugins/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
