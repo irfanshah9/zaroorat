@@ -106,14 +106,14 @@ var FormValidation = function() {
                     minlength: 3,
                     required: true
                 },
-                phone_1: {
+                e_phone_1: {
                     required: true,
                     number: true
                 },
-                location: {
+                e_location: {
                     required: true,
                 },
-                description: {
+                e_description: {
                     required: true,
                 },
                 
@@ -147,7 +147,7 @@ var FormValidation = function() {
         //main function to initiate the module
         init: function() {
 
-                handleElectricianValidation1();
+           //     handleElectricianValidation1();
         }
     };
 

@@ -161,7 +161,11 @@ async defer></script>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
                                     <input type="text" class="form-control" name="e_name" value="" autocomplete="e_name" /> </div>
-                               
+                               @if ($errors->has('e_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('e_name') }}</strong>
+                                </span>
+                            @endif
                             </div>
                         </div>
                         <div class="form-group  margin-top-20">
@@ -171,7 +175,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="ef_name" autocomplete="ef_name" value="" /> </div>
+                                    <input type="text" class="form-control" name="e_f_name" autocomplete="ef_name" value="" /> </div>
                             </div>
                         </div>
                          <div class="form-group  margin-top-20">
@@ -181,8 +185,12 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="phone_1" autocomplete="phone_1"  value="" /> </div>
-                               
+                                    <input type="text" class="form-control" name="e_phone_1" autocomplete="phone_1"  value="" /> </div>
+                               @if ($errors->has('e_phone_1'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('e_phone_1') }}</strong>
+                                </span>
+                            @endif
                             </div>
                         </div>
                         <div class="form-group  margin-top-20">
@@ -192,9 +200,8 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="phone_2" autocomplete="phone_2" value="" /> </div>
-                               
-                            </div>
+                                    <input type="text" class="form-control" name="e_phone_2" autocomplete="e_phone_2" value="" /> </div>
+                             </div>
                         </div>
                         <div class="form-group  margin-top-20">
                             <label class="control-label col-md-3">Shop Name
@@ -203,9 +210,8 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="shop_name" autocomplete="shop_name" value="" /> </div>
-                               
-                            </div>
+                                    <input type="text" class="form-control" name="e_shop_name" autocomplete="e_shop_name" value="" /> </div>
+                             </div>
                         </div>
                         <div id="location_container">
                              <div class="locations_div">
@@ -215,9 +221,13 @@ async defer></script>
                                     <div class="col-md-4">
                                         <div class="input-icon right">
                                         <i class="fa"></i>
-                                        <input type="text" id="location" name="location" value="<?php //echo $locations[0]; ?>" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
-                                        <input type="hidden" class="location_input" name="location_name" value="<?php// echo $location_name[0]; ?>" id="location_input" />
-                                        <span class="error"></span>
+                                        <input type="text" id="location" name="e_location" value="<?php //echo $locations[0]; ?>" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
+                                        <input type="hidden" class="location_input" name="e_location_name" value="<?php// echo $location_name[0]; ?>" id="location_input" />
+                                        @if ($errors->has('e_location'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('e_location') }}</strong>
+                                </span>
+                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -229,8 +239,12 @@ async defer></script>
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <textarea name="description" class="form-control" rows="5" data-error-container="#editor_error"></textarea>
-                               
+                                <textarea name="e_description" class="form-control" rows="5" data-error-container="#editor_error"></textarea>
+                               @if ($errors->has('e_description'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('e_description') }}</strong>
+                                </span>
+                            @endif
                                 <div id="editor_error"> </div>
                             </div>
                         </div>

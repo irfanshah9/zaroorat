@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Models\ElectriciansModel;
 
 class ElectricianController extends Controller
 {
@@ -37,20 +38,20 @@ class ElectricianController extends Controller
      */
     public function store(Request $request)
     {
-        die('here');
+      
         $validatedData = $request->validate([
             'e_name' => 'required',
-            'ef_name' => 'required',
-            'location' => 'required',
+            'e_phone_1' => 'required',
+            'e_location' => 'required',
         ]);
             
             $data = $request->all();
-            echo "<pre>";
-            print_r($data); exit;
+           // $data['created_by'] = Auth::id();
             unset($data['_token']);
-            $user = Student::create($data);
-        // return redirect('admin/students')->with(['message'=>'Student saved successfully']);
-        // return $request->all();
+            unset($data['e_location_name']);
+            print_r($data); exit;
+            $lectricians = Electricians::create($data);
+           return Redirect::back()->with('message','Electrician Added Successfully!');
     }
 
     /**
