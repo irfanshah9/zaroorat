@@ -29,7 +29,7 @@ class ProfileController extends Controller
         $user->password = bcrypt(request('password'));
         $user->save();
 
-    return redirect('dashboard')->with('key', 'You have done successfully');
+    return redirect('admin/dashboard')->with('key', 'You have done successfully');
         
     }
 }

@@ -46,12 +46,12 @@
                     <ul class="nav navbar-nav pull-right">
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="username username-hide-on-mobile"> {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} </span>
+                                <span class="username username-hide-on-mobile"> {{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}} </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="{{ route('profile') }}">
+                                    <a href="{{ route('admin::profile') }}">
                                         <i class="icon-lock"></i> Profile </a>
                                 </li>
                                 <li>
@@ -103,7 +103,7 @@
                                 <ul class="sub-menu">
                                     <?php
                                     $active = '';
-                                    
+                                   
                                     ?>
                                     <li class="nav-item start ">
                                         <a href="" class="nav-link nav-toggle">
@@ -114,10 +114,12 @@
                                     </li>
                                     <?php
                                     $active = '';
-                                   
+                                    if (Request::segment(1) == 'admin' || Request::segment(2) == 'add_electrician') {
+                                    $active = 'active';
+                                    }
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
-                                        <a href="{{url('admin/add_electrician')}}" class="nav-link nav-toggle">
+                                        <a href="{{url('admin/electrician/create')}}" class="nav-link nav-toggle">
                                             <i class="fa fa-building"></i>
                                             <span class="title">Add New Electrician</span>
                                             <span class="selected"></span>

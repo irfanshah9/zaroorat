@@ -24,9 +24,9 @@
         <div class="portlet light portlet-fit portlet-form bordered">
             <div class="portlet-body">
                 @if ($errors->any())
-        {{ implode('', $errors->all('<div>:message</div>')) }}
-@endif
-                <form action="{{route('profile.update',$user)}}" id="form_change_password"  class="form-horizontal" method="post" autocomplete="off">
+                {{ implode('', $errors->all('<div>:message</div>')) }}
+                @endif
+                <form action="{{route('admin::profile.update',$user)}}" id="form_change_password"  class="form-horizontal" method="post" autocomplete="off">
                     {{ csrf_field() }}
                     {{ method_field('patch') }}
                     <div class="form-body">
