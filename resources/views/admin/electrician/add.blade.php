@@ -96,6 +96,9 @@
             }
            // console.log(string);
             $('#location_input').val(string);
+            $('#latitude_input').val(latitude);
+            $('#longitude_input').val(longitude);
+            
             //console.log(string);
         }
     }
@@ -210,7 +213,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_shop_name" autocomplete="e_shop_name" value="" /> </div>
+                                    <input type="text" class="form-control" name="e_shop" autocomplete="e_shop_name" value="" /> </div>
                              </div>
                         </div>
                         <div id="location_container">
@@ -223,6 +226,8 @@ async defer></script>
                                         <i class="fa"></i>
                                         <input type="text" id="location" name="e_location" value="<?php //echo $locations[0]; ?>" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
                                         <input type="hidden" class="location_input" name="e_location_name" value="<?php// echo $location_name[0]; ?>" id="location_input" />
+                                        <input type="hidden" class="location_input" name="e_latitude" value="<?php// echo $location_name[0]; ?>" id="latitude_input" />
+                                        <input type="hidden" class="location_input" name="e_longitude" value="<?php// echo $location_name[0]; ?>" id="longitude_input" />
                                         @if ($errors->has('e_location'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('e_location') }}</strong>
@@ -252,7 +257,7 @@ async defer></script>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button  type="submit" name="save" value="" class="btn green">Save</button>
+                                <button  type="submit" name="save" class="btn green">Save</button>
                                 <a href="" ><button type="button" class="btn default">Cancel</button></a>
 
                             </div>

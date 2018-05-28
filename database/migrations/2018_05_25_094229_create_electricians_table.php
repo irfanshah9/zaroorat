@@ -19,7 +19,11 @@ class CreateElectriciansTable extends Migration
             $table->string('e_f_name');
             $table->string('e_phone_1');
             $table->string('e_phone_2');
-            $table->string('e_location');
+            $table->string('e_shop');
+            $table->text('e_location');
+            $table->string('e_longitude');
+            $table->string('e_latitude');
+            $table->string('e_zip_code');
             $table->string('e_description');
             $table->integer('created_by');
             $table->integer('updated_by');

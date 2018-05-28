@@ -23,7 +23,7 @@ class DashboardController extends Controller
      */
     public function index(request $request)
     {
-        $request->user()->authorizeRoles(['employee', 'manager']);
+        //$request->user()->authorizeRoles(['employee', 'manager']);
         return view('admin/dashboard');
     }
 }

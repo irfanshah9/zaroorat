@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Models\ElectriciansModel;
+use App\Models\Electricians;
+use Redirect;
 
 class ElectricianController extends Controller
 {
@@ -44,13 +45,16 @@ class ElectricianController extends Controller
             'e_phone_1' => 'required',
             'e_location' => 'required',
         ]);
+           $data = $request->all();
+//         echo "<pre>";
+//            print_r($data); exit;
             
-            $data = $request->all();
-           // $data['created_by'] = Auth::id();
+           $data['created_by'] = Auth::id();
             unset($data['_token']);
             unset($data['e_location_name']);
-            print_r($data); exit;
-            $lectricians = Electricians::create($data);
+            unset($data['save']);
+            
+           $lectricians = Electricians::create($data);
            return Redirect::back()->with('message','Electrician Added Successfully!');
     }
 
@@ -62,7 +66,7 @@ class ElectricianController extends Controller
      */
     public function show($id)
     {
-        //
+         return view('admin.electrician.view');
     }
 
     /**
@@ -113,5 +117,14 @@ class ElectricianController extends Controller
     {
         Student::destroy($id);
         return redirect()->back()->with(['message'=>'Student Deleted successfully']);
+    }
+    public function get_electrician_data(Request $request){
+       $afterParty='sdsdsds';
+       echo "Atetst"; exit;
+        if ($request->ajax()) {
+            return response()->json([
+                        'result' => $afterParty
+            ]);
+        }
     }
 }

@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin'], f
            // Route::post('add_electrician', 'ElectricianController@add_electrician')->name('add_electrician');
             Route::get('profile', 'ProfileController@index')->name('profile');
             Route::patch('update/{user}', 'ProfileController@update')->name('profile.update');
+            Route::post('get_electrician_data', 'ElectricianController@get_electrician_data')->name('get_electrician_data');
         
         });
 

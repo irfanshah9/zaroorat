@@ -106,7 +106,7 @@
                                    
                                     ?>
                                     <li class="nav-item start ">
-                                        <a href="" class="nav-link nav-toggle">
+                                        <a href="{{url('admin/electrician/show')}}" class="nav-link nav-toggle">
                                             <i class="fa fa-building"></i>
                                             <span class="title">View Electricians </span>
                                             <span class="selected"></span>
