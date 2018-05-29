@@ -119,12 +119,55 @@ class ElectricianController extends Controller
         return redirect()->back()->with(['message'=>'Student Deleted successfully']);
     }
     public function get_electrician_data(Request $request){
-       $afterParty='sdsdsds';
-       echo "Atetst"; exit;
-        if ($request->ajax()) {
-            return response()->json([
-                        'result' => $afterParty
-            ]);
+       $where =array();
+       $data =array();
+       $offset = $request->start;
+        if (trim($offset) == "") {
+            $offset = 1;
         }
+       $order_by = FALSE;
+        $colmnsArry = array('', '', 'e_name', 'e_f_name','e_phone_1','e_shop','e_location','e_description');
+        if ($request->order) {
+            $order = $request->order;
+            if (isset($order[0]['column'])) {
+                $order_by = $colmnsArry[$order[0]['column']] . " " . $order[0]['dir'];
+            }
+        }
+         if ($request->action == 'filter') {
+             $name =$request->e_name;
+             if(!empty($name)){
+                 $where['e_name'.' LIKE ' ] = '%' . $name . '%'; 
+             }
+             
+         }
+       $results = Electricians::where($where)->get();
+         $n = 1;
+            foreach ($results as $c) {
+                 $data[] = [
+                    '<input type="checkbox" name="id[]" class="checkboxes2" value="' . $c['id'] . '">',
+                    $n,
+                    $c['e_name'],
+                    $c['e_f_name'],
+                    $c['e_phone_1'],
+                    $c['e_shop'],
+                    $c['e_location'],
+                    $c['e_description'],
+                    '<div class="a_actions_width"><a class="table_button table_edit_button" href=""><i class="fa fa-edit"></i></a><button class="table_button table_delete_button" onclick="delete_electrician(' . $c['id'] . ')"><i class="fa fa-trash"></i></button></div>'
+                ];
+                $n++;
+            }
+
+
+      $totaldata = 30;
+        $totalfiltered = 20;
+
+        $json_data = array(
+                "draw"            => intval( $_REQUEST['draw'] ),
+                "recordsTotal"    => intval( $totaldata ),
+                "recordsFiltered" => intval( $totalfiltered ),
+                "data"            => $data
+        );
+
+        echo json_encode($json_data);
     }
 }

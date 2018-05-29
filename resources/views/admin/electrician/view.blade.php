@@ -13,7 +13,7 @@
 <script src="{{ asset('pages/scripts/table-datatables-ajax.js') }}" ></script>
 <script src="{{ asset('global/plugins/bootbox.min.js') }}" ></script>
 <script src="{{ asset('pages/scripts/ui-bootbox.js') }}" ></script>
-<!-- END PAGE LEVEL SCRIPTS -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="page-content-wrapper">
     <div class="page-content">
         <div class="page-bar">
@@ -60,7 +60,7 @@
                                         <th width="">Description</th>
                                         <th width="">Actions</th>
                                     </tr>
-<!--                                    <tr role="row" class="filter">
+                                    <tr role="row" class="filter">
                                         <td>
                                         </td>    
                                         <td>
@@ -70,15 +70,21 @@
 
                                         <td>
                                           <input type="text" class="form-control form-filter input-sm" name="e_father"> </td>
-
-                                        </td>
+                                        <td>
+                                          <input type="text" class="form-control form-filter input-sm" name="e_contact"> </td>
+                                        <td>
+                                          <input type="text" class="form-control form-filter input-sm" name="e_shop"> </td>
+                                        <td>
+                                          <input type="text" class="form-control form-filter input-sm" name="e_location"> </td>
+                                        <td>
+                                          <input type="text" class="form-control form-filter input-sm" name="e_description"> </td>
                                         <td>
                                             <span class="table_button table_search_button filter-submit margin-bottom">
                                                 <i class="fa fa-search"></i> </span>
                                             <span class="table_button table_refresh_button filter-cancel">
                                                 <i class="fa fa-refresh"></i> </span>
                                         </td>
-                                    </tr>-->
+                                    </tr>
                                 </thead>
                                 <tbody> </tbody>
                             </table>
@@ -146,7 +152,7 @@
         });
 
     });
-    $('#dept_table').keypress(function(e) {
+    $('#electrician_table').keypress(function(e) {
         var code = e.keyCode || e.which;
 
         if (code === 13) {
@@ -171,5 +177,10 @@
             }
         });
     });
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 </script>
 @endsection
