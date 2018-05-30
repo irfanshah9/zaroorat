@@ -135,12 +135,24 @@ class ElectricianController extends Controller
         }
          if ($request->action == 'filter') {
              $name =$request->e_name;
+             $e_father =$request->e_father;
              if(!empty($name)){
-                 $where['e_name'.' LIKE ' ] = '%' . $name . '%'; 
+                 $where['e_name'] = '%' . $name . '%'; 
+           //  $where =array('e_name', 'like', '%' . $name . '%');
+                 
+             }
+             if(!empty($e_father)){
+                 $where['e_f_name'] = '%' . $e_father . '%'; 
              }
              
          }
-       $results = Electricians::where($where)->get();
+         $results = Electricians::where(function($q) use ($where){
+            foreach($where as $key => $value){
+                $q->where($key, 'LIKE', $value);
+            }
+        })->get();
+//       $results = Electricians::where($where)->get();
+       $count =  count($results);
          $n = 1;
             foreach ($results as $c) {
                  $data[] = [
@@ -163,8 +175,8 @@ class ElectricianController extends Controller
 
         $json_data = array(
                 "draw"            => intval( $_REQUEST['draw'] ),
-                "recordsTotal"    => intval( $totaldata ),
-                "recordsFiltered" => intval( $totalfiltered ),
+                "recordsTotal"    => intval( $count ),
+                "recordsFiltered" => intval( $count ),
                 "data"            => $data
         );
 

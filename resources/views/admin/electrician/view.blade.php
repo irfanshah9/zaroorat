@@ -39,7 +39,7 @@
                             <span class="caption-subject font-dark sbold uppercase">Electrician Management</span>
                         </div>
                         <div class="actions">
-                            <a class="btn btn-sm green table-group-action-submit" href=""> Add New Electrician</a>
+                            <a class="btn btn-sm green table-group-action-submit" href="{{url('admin/electrician/create')}}"> Add New Electrician</a>
                             <a style="" class="btn red disabled btnMultiDelete btn-sm">Delete</a>
                             <div id="datatable_ajax_tools">
                             </div> 
