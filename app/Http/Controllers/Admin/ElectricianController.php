@@ -77,10 +77,10 @@ class ElectricianController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
+        $electrician = Electricians::find($id);
        
         $edit = true;
-        return view('admin.students.add',compact('student','edit'));
+        return view('admin.electrician.add',compact('student','edit'));
     }
 
     /**
@@ -115,8 +115,9 @@ class ElectricianController extends Controller
      */
     public function destroy($id)
     {
-        Student::destroy($id);
-        return redirect()->back()->with(['message'=>'Student Deleted successfully']);
+      Electricians::destroy($id);
+      \Session::flash('message', 'Electrician Deleted Successfully');
+       exit();
     }
     public function get_electrician_data(Request $request){
        $where =array();
@@ -136,23 +137,42 @@ class ElectricianController extends Controller
          if ($request->action == 'filter') {
              $name =$request->e_name;
              $e_father =$request->e_father;
+             $e_contact =$request->e_contact;
+             $e_shop =$request->e_shop;
+             $e_location =$request->e_location;
+             $e_description =$request->e_description;
              if(!empty($name)){
                  $where['e_name'] = '%' . $name . '%'; 
-           //  $where =array('e_name', 'like', '%' . $name . '%');
-                 
              }
              if(!empty($e_father)){
                  $where['e_f_name'] = '%' . $e_father . '%'; 
              }
+             if(!empty($e_contact)){
+                 $where['e_phone_1'] = '%' . $e_contact . '%'; 
+             }
+             
+             if(!empty($e_shop)){
+                 $where['e_shop'] = '%' . $e_shop . '%'; 
+             }
+             if(!empty($e_location)){
+                 $where['e_location'] = '%' . $e_location . '%'; 
+             }
+             if(!empty($e_description)){
+                 $where['e_description'] = '%' . $e_description . '%'; 
+             }
              
          }
+         $count = Electricians::where(function($q) use ($where){
+            foreach($where as $key => $value){
+                $q->where($key, 'LIKE', $value);
+            }
+        })->count();
+         $pageLimit = (($request->length) < 0) ? $count : $request->length;
          $results = Electricians::where(function($q) use ($where){
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }
-        })->get();
-//       $results = Electricians::where($where)->get();
-       $count =  count($results);
+        })->skip($offset)->take($pageLimit)->get();
          $n = 1;
             foreach ($results as $c) {
                  $data[] = [
@@ -168,10 +188,6 @@ class ElectricianController extends Controller
                 ];
                 $n++;
             }
-
-
-      $totaldata = 30;
-        $totalfiltered = 20;
 
         $json_data = array(
                 "draw"            => intval( $_REQUEST['draw'] ),
