@@ -139,17 +139,22 @@ async defer></script>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Add New Electrician</span>
+                    <span>@if(isset($edit)) Edit Electrician @else Add New Electricain @endif</span>
                 </li>
             </ul>
         </div>
-        <form action="{{url('admin/electrician')}}" id="electrician_form" class="form-horizontal" method="post">
-             {{ csrf_field() }}
+        @if(isset($edit))
+        <form action="{{url('admin/electrician/')}}/{{isset($electrician) ? $electrician->id : ''}}" id="electrician_form" class="form-horizontal" method="post">
+         {!! method_field('patch') !!}
+        @else
+         <form action="{{url('admin/electrician')}}" id="electrician_form" class="form-horizontal" method="post">
+         @endif
+         {{ csrf_field() }}
             <div class="portlet light portlet-fit portlet-form bordered">
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-building font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">Add New Electrician</span>
+                        <span class="caption-subject font-green bold uppercase">@if(isset($edit)) Edit Electrician @else Add New Electricain @endif</span>
                     </div>
                 </div>
               <div class="portlet-body">
@@ -163,7 +168,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_name" value="" autocomplete="e_name" /> </div>
+                                    <input type="text" class="form-control" name="e_name" value="{{ isset($electrician) ? $electrician->e_name : old('e_name') }}" autocomplete="e_name" /> </div>
                                @if ($errors->has('e_name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('e_name') }}</strong>
@@ -178,7 +183,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_f_name" autocomplete="ef_name" value="" /> </div>
+                                    <input type="text" class="form-control" name="e_f_name" autocomplete="ef_name" value="{{ isset($electrician) ? $electrician->e_f_name : old('e_f_name') }}" /> </div>
                             </div>
                         </div>
                          <div class="form-group  margin-top-20">
@@ -188,7 +193,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_phone_1" autocomplete="phone_1"  value="" /> </div>
+                                    <input type="text" class="form-control" name="e_phone_1" autocomplete="e_phone_1"  value="{{ isset($electrician) ? $electrician->e_phone_1 : old('e_phone_1') }}" /> </div>
                                @if ($errors->has('e_phone_1'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('e_phone_1') }}</strong>
@@ -203,7 +208,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_phone_2" autocomplete="e_phone_2" value="" /> </div>
+                                    <input type="text" class="form-control" name="e_phone_2" autocomplete="e_phone_2" value="{{ isset($electrician) ? $electrician->e_phone_2 : old('e_phone_2') }}" /> </div>
                              </div>
                         </div>
                         <div class="form-group  margin-top-20">
@@ -213,7 +218,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="e_shop" autocomplete="e_shop_name" value="" /> </div>
+                                    <input type="text" class="form-control" name="e_shop" autocomplete="e_shop" value="{{ isset($electrician) ? $electrician->e_shop : old('e_shop') }}" /> </div>
                              </div>
                         </div>
                         <div id="location_container">
@@ -224,10 +229,9 @@ async defer></script>
                                     <div class="col-md-4">
                                         <div class="input-icon right">
                                         <i class="fa"></i>
-                                        <input type="text" id="location" name="e_location" value="<?php //echo $locations[0]; ?>" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
-                                        <input type="hidden" class="location_input" name="e_location_name" value="<?php// echo $location_name[0]; ?>" id="location_input" />
-                                        <input type="hidden" class="location_input" name="e_latitude" value="<?php// echo $location_name[0]; ?>" id="latitude_input" />
-                                        <input type="hidden" class="location_input" name="e_longitude" value="<?php// echo $location_name[0]; ?>" id="longitude_input" />
+                                        <input type="text" id="location" name="e_location" value="{{ isset($electrician) ? $electrician->e_location : old('e_location') }}" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
+                                        <input type="hidden" class="location_input" name="e_latitude" value="{{ isset($electrician) ? $electrician->e_latitude : old('e_latitude') }}" id="latitude_input" />
+                                        <input type="hidden" class="location_input" name="e_longitude" value="{{ isset($electrician) ? $electrician->e_longitude : old('e_longitude') }}" id="longitude_input" />
                                         @if ($errors->has('e_location'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('e_location') }}</strong>
@@ -244,7 +248,7 @@ async defer></script>
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <textarea name="e_description" class="form-control" rows="5" data-error-container="#editor_error"></textarea>
+                                <textarea name="e_description" class="form-control" rows="5" data-error-container="#editor_error">{{ isset($electrician) ? $electrician->e_description : old('e_description') }}</textarea>
                                @if ($errors->has('e_description'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('e_description') }}</strong>

@@ -19,6 +19,7 @@ Auth::routes();
 /*ROUTES FOR ADMIN*/
 Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin'], function() {
             Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+            Route::post('electriciansbulkdelete', 'ElectricianController@electriciansbulkdelete');
             Route::resource('electrician', 'ElectricianController');
             Route::get('profile', 'ProfileController@index')->name('profile');
             Route::patch('update/{user}', 'ProfileController@update')->name('profile.update');

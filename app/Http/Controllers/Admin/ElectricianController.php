@@ -45,17 +45,14 @@ class ElectricianController extends Controller
             'e_phone_1' => 'required',
             'e_location' => 'required',
         ]);
-           $data = $request->all();
-//         echo "<pre>";
-//            print_r($data); exit;
-            
-           $data['created_by'] = Auth::id();
+            $data = $request->all();
+            $data['created_by'] = Auth::id();
             unset($data['_token']);
             unset($data['e_location_name']);
             unset($data['save']);
             
            $lectricians = Electricians::create($data);
-           return Redirect::back()->with('message','Electrician Added Successfully!');
+          return redirect('admin/electrician/show')->with(['message'=>'Electrician Added successfully']);
     }
 
     /**
@@ -78,9 +75,8 @@ class ElectricianController extends Controller
     public function edit($id)
     {
         $electrician = Electricians::find($id);
-       
         $edit = true;
-        return view('admin.electrician.add',compact('student','edit'));
+        return view('admin.electrician.add',compact('electrician','edit'));
     }
 
     /**
@@ -92,18 +88,23 @@ class ElectricianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'std_name' => 'required|max:255',
-        ]);
-        $data = $request->all();
-        unset($data['_token']);
         
-        // return $data;
-        $student = Student::find($id);
-        $student->update($data);
-        $student->save();
+        $validatedData = $request->validate([
+            'e_name' => 'required',
+            'e_phone_1' => 'required',
+            'e_location' => 'required',
+        ]);
+            $data = $request->all();
+            $data['created_by'] = Auth::id();
+            unset($data['_token']);
+            unset($data['e_location_name']);
+            unset($data['save']);
+           // return $data;
+        $electricians = Electricians::find($id);
+        $electricians->update($data);
+        $electricians->save();
 
-        return redirect('admin/students')->with(['message'=>'Student Updated successfully']);
+        return redirect('admin/electrician/show')->with(['message'=>'Electrician Updated successfully']);
         
     }
 
@@ -115,7 +116,8 @@ class ElectricianController extends Controller
      */
     public function destroy($id)
     {
-      Electricians::destroy($id);
+      $ids = explode(",", $id);  
+      Electricians::destroy($ids);
       \Session::flash('message', 'Electrician Deleted Successfully');
        exit();
     }
@@ -126,12 +128,13 @@ class ElectricianController extends Controller
         if (trim($offset) == "") {
             $offset = 1;
         }
-       $order_by = FALSE;
-        $colmnsArry = array('', '', 'e_name', 'e_f_name','e_phone_1','e_shop','e_location','e_description');
+       $colmnsArry = array('', '', 'e_name', 'e_f_name','e_phone_1','e_shop','e_location','e_description');
         if ($request->order) {
             $order = $request->order;
             if (isset($order[0]['column'])) {
-                $order_by = $colmnsArry[$order[0]['column']] . " " . $order[0]['dir'];
+                $fieldName = $colmnsArry[$order[0]['column']];
+                $orderType = $order[0]['dir'];
+                $order_by = $colmnsArry[$order[0]['column']] . "," . $order[0]['dir'];
             }
         }
          if ($request->action == 'filter') {
@@ -172,7 +175,7 @@ class ElectricianController extends Controller
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }
-        })->skip($offset)->take($pageLimit)->get();
+        })->orderBy($fieldName,$orderType)->skip($offset)->take($pageLimit)->get();
          $n = 1;
             foreach ($results as $c) {
                  $data[] = [
@@ -184,7 +187,7 @@ class ElectricianController extends Controller
                     $c['e_shop'],
                     $c['e_location'],
                     $c['e_description'],
-                    '<div class="a_actions_width"><a class="table_button table_edit_button" href=""><i class="fa fa-edit"></i></a><button class="table_button table_delete_button" onclick="delete_electrician(' . $c['id'] . ')"><i class="fa fa-trash"></i></button></div>'
+                    '<div class="a_actions_width"><a class="table_button table_edit_button" href="../electrician/'. $c['id'] .'/edit"><i class="fa fa-edit"></i></a><button class="table_button table_delete_button" onclick="delete_electrician(' . $c['id'] . ')"><i class="fa fa-trash"></i></button></div>'
                 ];
                 $n++;
             }
@@ -197,5 +200,9 @@ class ElectricianController extends Controller
         );
 
         echo json_encode($json_data);
+    }
+    public function electriciansbulkdelete ($id){
+        var_dump($id); exit;
+        
     }
 }

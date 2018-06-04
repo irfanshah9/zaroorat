@@ -164,16 +164,23 @@
 
     //Delete Multi
     $(document).on('click', '.btnMultiDelete', function() {
-        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected companies?", function(result) {
+        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected Electricians?", function(result) {
             if (result == true) {
 
                 var checkedValues = $('input:checkbox:checked').map(function() {
                     return this.value;
                 }).get();
                 if (checkedValues != undefined && checkedValues != '')
-                    $.post($('#base_url').val() + "admin/company/delete_company_multiple", {ids: checkedValues}, function(data) {
-                        location.reload();
-                    });
+                $.ajax({
+                type: "DELETE",
+                data: {"id": checkedValues, token: "{{ csrf_token() }}", method: 'DELETE'},
+                url: "../electrician/"+checkedValues,
+                dataType: "json",
+                success: function(response) {
+                location.reload();
+                return false;
+                }
+                });
             }
         });
     });
