@@ -74,9 +74,8 @@
                             <div class="sidebar-toggler"> </div>
                         </li>
                         <?php
-                       // if (preg_grep("/Dashboard/i", $modules)) {
-                            $active = '';
-                            if (Request::segment(1) == 'Dashboard' || Request::segment(1) == 'dashboard') {
+                          $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'dashboard') {
                                 $active = 'active';
                             }
                             ?>
@@ -87,11 +86,11 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                       <?php
+                         <?php
                             $active = '';
-                           // if (Request::segment(1) == 'Dashboard' || Request::segment(1) == 'dashboard') {
-                          //      $active = 'active';
-                          //  }
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'electrician') {
+                                $active = 'active';
+                            }
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
@@ -104,8 +103,11 @@
                                     <?php
                                     $active = '';
                                    
+                                   if (Request::segment(2) == 'electrician' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
                                     ?>
-                                    <li class="nav-item start ">
+                                    <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/electrician/show')}}" class="nav-link nav-toggle">
                                             <i class="fa fa-building"></i>
                                             <span class="title">View Electricians </span>
@@ -114,7 +116,7 @@
                                     </li>
                                     <?php
                                     $active = '';
-                                    if (Request::segment(1) == 'admin' || Request::segment(2) == 'add_electrician') {
+                                    if (Request::segment(2) == 'electrician' && Request::segment(3) == 'create') {
                                     $active = 'active';
                                     }
                                     ?>
@@ -127,8 +129,50 @@
                                     </li>
                                 </ul>
                             </li>
+                            <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'plumber') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Plumber Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'plumber' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/plumber/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Plumbers </span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'plumber' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/plumber/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Plumber</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                      </ul>
-                  
                 </div>
             </div>
             @yield('content')

@@ -15,3 +15,20 @@ return false;
 }
 });
 }
+/*DELETE Plumber*/
+function delete_plumber(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this plumber?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../plumber/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
