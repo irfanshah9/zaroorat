@@ -172,6 +172,135 @@
                                     </li>
                                 </ul>
                             </li>
+                             <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'painter') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Painter Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'painter' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/painter/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Painters </span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'painter' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/painter/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Painter</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                              <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'carpainter') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Car painter Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'carpainter' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/carpainter/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Car Painters </span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'carpainter' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/carpainter/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Car Painter</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                              <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'mason') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Mason Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'mason' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/mason/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Masons</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'mason' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/mason/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Mason</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                      </ul>
                 </div>
             </div>

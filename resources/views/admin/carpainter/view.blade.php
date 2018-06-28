@@ -23,7 +23,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="">Plumber Management</a>
+                    <a href="">Painter Management</a>
                 </li>
             </ul>
         </div>
@@ -36,10 +36,10 @@
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="icon-settings font-dark"></i>
-                            <span class="caption-subject font-dark sbold uppercase">Plumber Management</span>
+                            <span class="caption-subject font-dark sbold uppercase">Car Painter Management</span>
                         </div>
                         <div class="actions">
-                            <a class="btn btn-sm green table-group-action-submit" href="{{url('admin/plumber/create')}}"> Add New Plumber</a>
+                            <a class="btn btn-sm green table-group-action-submit" href="{{url('admin/painter/create')}}"> Add New Car Painter</a>
                             <a style="" class="btn red disabled btnMultiDelete btn-sm">Delete</a>
                             <div id="datatable_ajax_tools">
                             </div> 
@@ -47,7 +47,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="table-container">
-                            <table class="table table-striped table-bordered table-hover table-checkable" id="plumber_table">
+                            <table class="table table-striped table-bordered table-hover table-checkable" id="carpainter_table">
                                 <thead>
                                     <tr role="row" class="heading">
                                         <th width=""><input type="checkbox" class="group-checkable2" id="gropu" data-set=".checkboxes2" /></th>
@@ -66,18 +66,18 @@
                                         <td>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control form-filter input-sm" name="p_name"> </td>
+                                            <input type="text" class="form-control form-filter input-sm" name="cp_name"> </td>
 
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="p_father"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="cp_father"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="p_contact"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="cp_contact"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="p_shop"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="cp_shop"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="p_location"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="cp_location"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="p_description"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="cp_description"> </td>
                                         <td>
                                             <span class="table_button table_search_button filter-submit margin-bottom">
                                                 <i class="fa fa-search"></i> </span>
@@ -97,7 +97,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#plumber_table').find('.group-checkable2').change(function() {
+        $('#carpainter_table').find('.group-checkable2').change(function() {
 
             var set = jQuery(this).attr("data-set");
             var checked = jQuery(this).is(":checked");
@@ -114,7 +114,7 @@
             });
             jQuery.uniform.update(set);
         });
-        $('#plumber_table').on('click', 'tr .checkboxes2', function() {
+        $('#carpainter_table').on('click', 'tr .checkboxes2', function() {
 
             if ($(this).is(':checked')) {
 
@@ -152,7 +152,7 @@
         });
 
     });
-    $('#plumber_table').keypress(function(e) {
+    $('#carpainter_table').keypress(function(e) {
         var code = e.keyCode || e.which;
 
         if (code === 13) {
@@ -164,7 +164,7 @@
 
     //Delete Multi
     $(document).on('click', '.btnMultiDelete', function() {
-        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected Plumbers?", function(result) {
+        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected car Painters?", function(result) {
             if (result == true) {
 
                 var checkedValues = $('input:checkbox:checked').map(function() {
@@ -174,7 +174,7 @@
                 $.ajax({
                 type: "DELETE",
                 data: {"id": checkedValues, token: "{{ csrf_token() }}", method: 'DELETE'},
-                url: "../plumber/"+checkedValues,
+                url: "../carpainter/"+checkedValues,
                 dataType: "json",
                 success: function(response) {
                 location.reload();
