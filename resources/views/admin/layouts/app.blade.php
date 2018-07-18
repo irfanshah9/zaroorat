@@ -301,6 +301,49 @@
                                     </li>
                                 </ul>
                             </li>
+                             <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'labour') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Labour Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'labour' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/labour/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Labours</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'labour' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/labour/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Labour</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                      </ul>
                 </div>
             </div>

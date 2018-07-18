@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin'], f
             Route::post('get_carpainter_data', 'CarPainterController@get_carpainter_data')->name('get_carpainter_data');
             Route::resource('mason', 'MasonController');
             Route::post('get_mason_data', 'MasonController@get_mason_data')->name('get_mason_data');
+            Route::resource('labour', 'LabourController');
+            Route::post('get_labour_data', 'LabourController@get_labour_data')->name('get_labour_data');
         
         });
 
