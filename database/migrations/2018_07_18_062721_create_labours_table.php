@@ -14,7 +14,7 @@ class CreateLaboursTable extends Migration
     public function up()
     {
         Schema::create('labours', function (Blueprint $table) {
-          $table->increments('id');
+            $table->increments('id');
             $table->string('l_name');
             $table->string('l_f_name');
             $table->string('l_phone_1');

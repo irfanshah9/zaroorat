@@ -344,6 +344,92 @@
                                     </li>
                                 </ul>
                             </li>
+                             <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'ac_mechanic') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">AC Mechanic Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'ac_mechanic' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/ac_mechanic/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View AC Mechanics</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'ac_mechanic' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/ac_mechanic/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Mechanic</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'car_mechanic') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Car Mechanic Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'car_mechanic' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/car_mechanic/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Car Mechanics</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'car_mechanic' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/car_mechanic/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Mechanic</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                      </ul>
                 </div>
             </div>

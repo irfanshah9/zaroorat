@@ -100,3 +100,37 @@ return false;
 }
 });
 }
+/*DELETE AC Mechanic*/
+function delete_ac_mechanic(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Mechanic?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../ac_mechanic/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
+/*DELETE CAR Mechanic*/
+function delete_ac_mechanic(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Car Mechanic?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../car_mechanic/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
