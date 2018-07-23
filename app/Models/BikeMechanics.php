@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AC_Mechanics extends Model
+class BikeMechanics extends Model
 {
-     protected $guarded = [];
+    protected $guarded = [];
 }

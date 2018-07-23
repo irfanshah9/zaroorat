@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Models\Car_Mechanics;
+use App\Models\CarMechanics;
 use Redirect;
 
 class Car_MechanicController extends Controller
@@ -50,7 +50,7 @@ class Car_MechanicController extends Controller
             unset($data['_token']);
             unset($data['save']);
             
-           Car_Mechanics::create($data);
+           CarMechanics::create($data);
           return redirect('admin/car_mechanic/show')->with(['message'=>'Car Mechanic Added successfully']);
     }
 
@@ -73,7 +73,7 @@ class Car_MechanicController extends Controller
      */
     public function edit($id)
     {
-        $car_mechanic = Car_Mechanics::find($id);
+        $car_mechanic = CarMechanics::find($id);
         $edit = true;
         return view('admin.car_mechanic.add',compact('car_mechanic','edit'));
     }
@@ -97,7 +97,7 @@ class Car_MechanicController extends Controller
             $data['updated_by'] = Auth::id();
             unset($data['_token']);
             unset($data['save']);
-        $car_mechanic = Car_Mechanics::find($id);
+        $car_mechanic = CarMechanics::find($id);
         $car_mechanic->update($data);
         $car_mechanic->save();
 
@@ -114,7 +114,7 @@ class Car_MechanicController extends Controller
     public function destroy($id)
     {
       $ids = explode(",", $id);  
-      Car_Mechanics::destroy($ids);
+      CarMechanics::destroy($ids);
       \Session::flash('message', 'Car Mechanic Deleted Successfully');
        exit();
     }
@@ -162,13 +162,13 @@ class Car_MechanicController extends Controller
              }
              
          }
-         $count = Car_Mechanics::where(function($q) use ($where){
+         $count = CarMechanics::where(function($q) use ($where){
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }
         })->count();
          $pageLimit = (($request->length) < 0) ? $count : $request->length;
-         $results = Car_Mechanics::where(function($q) use ($where){
+         $results = CarMechanics::where(function($q) use ($where){
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }

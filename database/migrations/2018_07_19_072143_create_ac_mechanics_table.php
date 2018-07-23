@@ -19,6 +19,7 @@ class CreateAcMechanicsTable extends Migration
             $table->string('ac_m_f_name');
             $table->string('ac_m_phone_1');
             $table->string('ac_m_phone_2');
+             $table->string('ac_m_shop');
             $table->text('ac_m_location');
             $table->string('ac_m_longitude');
             $table->string('ac_m_latitude');

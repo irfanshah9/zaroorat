@@ -118,13 +118,30 @@ return false;
 });
 }
 /*DELETE CAR Mechanic*/
-function delete_ac_mechanic(id){
+function delete_car_mechanic(id){
 bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Car Mechanic?", function(result) {
 if (result == true) {
 $.ajax({
 type: "DELETE",
 data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
 url: "../car_mechanic/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
+/*DELETE CAR Mechanic*/
+function delete_bike_mechanic(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Bike Mechanic?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../bike_mechanic/"+id,
 dataType: "json",
 success: function(response) {
 location.reload();

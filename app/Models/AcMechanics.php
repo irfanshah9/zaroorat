@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Car_Mechanics extends Model
+class AcMechanics extends Model
 {
      protected $guarded = [];
 }

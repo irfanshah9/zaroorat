@@ -19,6 +19,7 @@ class CreateCarMechanicsTable extends Migration
             $table->string('car_m_f_name');
             $table->string('car_m_phone_1');
             $table->string('car_m_phone_2');
+             $table->string('car_m_shop');
             $table->text('car_m_location');
             $table->string('car_m_longitude');
             $table->string('car_m_latitude');

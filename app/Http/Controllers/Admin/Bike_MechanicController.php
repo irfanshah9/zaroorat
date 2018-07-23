@@ -5,10 +5,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Models\AcMechanics;
+use App\Models\BikeMechanics;
 use Redirect;
 
-class AC_MechanicController extends Controller
+class Bike_MechanicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class AC_MechanicController extends Controller
      */
     public function create()
     {
-        return view('admin.ac_mechanic.add');
+        return view('admin.bike_mechanic.add');
     }
 
     /**
@@ -41,17 +41,17 @@ class AC_MechanicController extends Controller
     {
         
        $validatedData = $request->validate([
-            'ac_m_name' => 'required',
-            'ac_m_phone_1' => 'required',
-            'ac_m_location' => 'required',
+            'bike_m_name' => 'required',
+            'bike_m_phone_1' => 'required',
+            'bike_m_location' => 'required',
         ]);
             $data = $request->all();
             $data['created_by'] = Auth::id();
             unset($data['_token']);
             unset($data['save']);
             
-           ACMechanics::create($data);
-          return redirect('admin/ac_mechanic/show')->with(['message'=>'AC Mechanic Added successfully']);
+           BikeMechanics::create($data);
+          return redirect('admin/bike_mechanic/show')->with(['message'=>'Bike Mechanic Added successfully']);
     }
 
     /**
@@ -62,7 +62,7 @@ class AC_MechanicController extends Controller
      */
     public function show($id)
     {
-         return view('admin.ac_mechanic.view');
+         return view('admin.bike_mechanic.view');
     }
 
     /**
@@ -73,9 +73,9 @@ class AC_MechanicController extends Controller
      */
     public function edit($id)
     {
-        $ac_mechanic = ACMechanics::find($id);
+        $bike_mechanic = BikeMechanics::find($id);
         $edit = true;
-        return view('admin.ac_mechanic.add',compact('ac_mechanic','edit'));
+        return view('admin.bike_mechanic.add',compact('bike_mechanic','edit'));
     }
 
     /**
@@ -89,19 +89,19 @@ class AC_MechanicController extends Controller
     {
         
         $validatedData = $request->validate([
-            'ac_m_name' => 'required',
-            'ac_m_phone_1' => 'required',
-            'ac_m_location' => 'required',
+            'bike_m_name' => 'required',
+            'bike_m_phone_1' => 'required',
+            'bike_m_location' => 'required',
         ]);
             $data = $request->all();
             $data['updated_by'] = Auth::id();
             unset($data['_token']);
             unset($data['save']);
-        $ac_mechanic = ACMechanics::find($id);
-        $ac_mechanic->update($data);
-        $ac_mechanic->save();
+        $bike_mechanic = BikeMechanics::find($id);
+        $bike_mechanic->update($data);
+        $bike_mechanic->save();
 
-        return redirect('admin/ac_mechanic/show')->with(['message'=>'AC Mechanic Updated successfully']);
+        return redirect('admin/bike_mechanic/show')->with(['message'=>'Bike Mechanic Updated successfully']);
         
     }
 
@@ -114,18 +114,18 @@ class AC_MechanicController extends Controller
     public function destroy($id)
     {
       $ids = explode(",", $id);  
-      ACMechanics::destroy($ids);
-      \Session::flash('message', 'AC Mechanic Deleted Successfully');
+      BikeMechanics::destroy($ids);
+      \Session::flash('message', 'Bike Mechanic Deleted Successfully');
        exit();
     }
-    public function get_ac_mechanic_data(Request $request){
+    public function get_bike_mechanic_data(Request $request){
        $where =array();
        $data =array();
        $offset = $request->start;
         if (trim($offset) == "") {
             $offset = 1;
         }
-       $colmnsArry = array('', '', 'ac_m_name', 'ac_m_f_name','ac_m_phone_1','ac_m_shop','ac_m_location','ac_m_description');
+       $colmnsArry = array('', '', 'bike_m_name', 'bike_m_f_name','bike_m_phone_1','bike_m_shop','bike_m_location','bike_m_description');
         if ($request->order) {
             $order = $request->order;
             if (isset($order[0]['column'])) {
@@ -135,40 +135,40 @@ class AC_MechanicController extends Controller
             }
         }
          if ($request->action == 'filter') {
-             $name =$request->ac_m_name;
-             $ac_m_father =$request->ac_m_father;
-             $ac_m_contact =$request->ac_m_contact;
-             $ac_m_shop =$request->ac_m_shop;
-             $ac_m_location =$request->ac_m_location;
-             $ac_m_description =$request->ac_m_description;
+             $name =$request->bike_m_name;
+             $bike_m_father =$request->bike_m_father;
+             $bike_m_contact =$request->bike_m_contact;
+             $bike_m_shop =$request->bike_m_shop;
+             $bike_m_location =$request->bike_m_location;
+             $bike_m_description =$request->bike_m_description;
              if(!empty($name)){
-                 $where['ac_m_name'] = '%' . $name . '%'; 
+                 $where['bike_m_name'] = '%' . $name . '%'; 
              }
-             if(!empty($ac_m_father)){
-                 $where['ac_m_f_name'] = '%' . $ac_m_father . '%'; 
+             if(!empty($bike_m_father)){
+                 $where['bike_m_f_name'] = '%' . $bike_m_father . '%'; 
              }
-             if(!empty($ac_m_contact)){
-                 $where['ac_m_phone_1'] = '%' . $ac_m_contact . '%'; 
+             if(!empty($bike_m_contact)){
+                 $where['bike_m_phone_1'] = '%' . $bike_m_contact . '%'; 
              }
              
-             if(!empty($ac_m_shop)){
-                 $where['ac_m_shop'] = '%' . $ac_m_shop . '%'; 
+             if(!empty($bike_m_shop)){
+                 $where['bike_m_shop'] = '%' . $bike_m_shop . '%'; 
              }
-             if(!empty($ac_m_location)){
-                 $where['ac_m_location'] = '%' . $ac_m_location . '%'; 
+             if(!empty($bike_m_location)){
+                 $where['bike_m_location'] = '%' . $bike_m_location . '%'; 
              }
-             if(!empty($ac_m_description)){
-                 $where['ac_m_description'] = '%' . $ac_m_description . '%'; 
+             if(!empty($bike_m_description)){
+                 $where['bike_m_description'] = '%' . $bike_m_description . '%'; 
              }
              
          }
-         $count = ACMechanics::where(function($q) use ($where){
+         $count = BikeMechanics::where(function($q) use ($where){
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }
         })->count();
          $pageLimit = (($request->length) < 0) ? $count : $request->length;
-         $results = ACMechanics::where(function($q) use ($where){
+         $results = BikeMechanics::where(function($q) use ($where){
             foreach($where as $key => $value){
                 $q->where($key, 'LIKE', $value);
             }
@@ -178,13 +178,13 @@ class AC_MechanicController extends Controller
                  $data[] = [
                     '<input type="checkbox" name="id[]" class="checkboxes2" value="' . $c['id'] . '">',
                     $n,
-                    $c['ac_m_name'],
-                    $c['ac_m_f_name'],
-                    $c['ac_m_phone_1'],
-                    $c['ac_m_shop'],
-                    $c['ac_m_location'],
-                    $c['ac_m_description'],
-                    '<div class="a_actions_width"><a class="table_button table_edit_button" href="../ac_mechanic/'. $c['id'] .'/edit"><i class="fa fa-edit"></i></a><button class="table_button table_delete_button" onclick="delete_ac_mechanic(' . $c['id'] . ')"><i class="fa fa-trash"></i></button></div>'
+                    $c['bike_m_name'],
+                    $c['bike_m_f_name'],
+                    $c['bike_m_phone_1'],
+                    $c['bike_m_shop'],
+                    $c['bike_m_location'],
+                    $c['bike_m_description'],
+                    '<div class="a_actions_width"><a class="table_button table_edit_button" href="../bike_mechanic/'. $c['id'] .'/edit"><i class="fa fa-edit"></i></a><button class="table_button table_delete_button" onclick="delete_bike_mechanic(' . $c['id'] . ')"><i class="fa fa-trash"></i></button></div>'
                 ];
                 $n++;
             }

@@ -38,6 +38,8 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin'], f
             Route::post('get_ac_mechanic_data', 'AC_MechanicController@get_ac_mechanic_data')->name('get_ac_mechanic_data');
             Route::resource('car_mechanic', 'Car_MechanicController');
             Route::post('get_car_mechanic_data', 'Car_MechanicController@get_car_mechanic_data')->name('get_car_mechanic_data');
+            Route::resource('bike_mechanic', 'Bike_MechanicController');
+            Route::post('get_bike_mechanic_data', 'Bike_MechanicController@get_bike_mechanic_data')->name('get_bike_mechanic_data');
         
         });
 
