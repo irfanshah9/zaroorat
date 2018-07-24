@@ -40,6 +40,10 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin'], f
             Route::post('get_car_mechanic_data', 'Car_MechanicController@get_car_mechanic_data')->name('get_car_mechanic_data');
             Route::resource('bike_mechanic', 'Bike_MechanicController');
             Route::post('get_bike_mechanic_data', 'Bike_MechanicController@get_bike_mechanic_data')->name('get_bike_mechanic_data');
+            Route::resource('gas_mechanic', 'Gas_MechanicController');
+            Route::post('get_gas_mechanic_data', 'Gas_MechanicController@get_gas_mechanic_data')->name('get_gas_mechanic_data');
+            Route::resource('lock_master', 'LockMasterController');
+            Route::post('get_lock_master_data', 'LockMasterController@get_lock_master_data')->name('get_lock_master_data');
         
         });
 

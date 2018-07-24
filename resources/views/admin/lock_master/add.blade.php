@@ -88,7 +88,7 @@
                         addressType = 'state';
                     }
                     else if (addressType == 'postal_code') {
-                        addressType = 'zibike_m_code';
+                        addressType = 'zilm_code';
                     }
 
                     string = string + '!!' + addressType + ':' + val;
@@ -119,26 +119,26 @@ async defer></script>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="">Bike Mechanic Management</a>
+                    <a href="">Lock Master Management</a>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>@if(isset($edit)) Edit Bike Mechanic @else Add New Bike Mechanic @endif</span>
+                    <span>@if(isset($edit)) Edit Lock Master @else Add New Lock Master @endif</span>
                 </li>
             </ul>
         </div>
         @if(isset($edit))
-        <form action="{{url('admin/bike_mechanic/')}}/{{isset($bike_mechanic) ? $bike_mechanic->id : ''}}" id="bike_mechanic_form" class="form-horizontal" method="post">
+        <form action="{{url('admin/lock_master/')}}/{{isset($lock_master) ? $lock_master->id : ''}}" id="lock_master_form" class="form-horizontal" method="post">
          {!! method_field('patch') !!}
         @else
-         <form action="{{url('admin/bike_mechanic')}}" id="bike_mechanic_form" class="form-horizontal" method="post">
+         <form action="{{url('admin/lock_master')}}" id="lock_master_form" class="form-horizontal" method="post">
          @endif
          {{ csrf_field() }}
             <div class="portlet light portlet-fit portlet-form bordered">
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-building font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">@if(isset($edit)) Edit Bike Mechanic @else Add New Bike Mechanic @endif</span>
+                        <span class="caption-subject font-green bold uppercase">@if(isset($edit)) Edit Lock Master @else Add New Lock Master @endif</span>
                     </div>
                 </div>
               <div class="portlet-body">
@@ -146,16 +146,16 @@ async defer></script>
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
                         <div class="form-group  margin-top-20">
-                            <label class="control-label col-md-3">Bike Mechanic Name
+                            <label class="control-label col-md-3">Lock Master Name
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="bike_m_name" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_name : old('bike_m_name') }}" autocomplete="bike_m_name" /> </div>
-                               @if ($errors->has('bike_m_name'))
+                                    <input type="text" class="form-control" name="lm_name" value="{{ isset($lock_master) ? $lock_master->lm_name : old('lm_name') }}" autocomplete="lm_name" /> </div>
+                               @if ($errors->has('lm_name'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('bike_m_name') }}</strong>
+                                    <strong>{{ $errors->first('lm_name') }}</strong>
                                 </span>
                             @endif
                             </div>
@@ -167,7 +167,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="bike_m_f_name"  value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_f_name : old('bike_m_f_name') }}" /> </div>
+                                    <input type="text" class="form-control" name="lm_f_name"  value="{{ isset($lock_master) ? $lock_master->lm_f_name : old('lm_f_name') }}" /> </div>
                             </div>
                         </div>
                          <div class="form-group  margin-top-20">
@@ -177,10 +177,10 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="bike_m_phone_1" autocomplete="e_phone_1"  value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_phone_1 : old('bike_m_phone_1') }}" /> </div>
-                               @if ($errors->has('bike_m_phone_1'))
+                                    <input type="text" class="form-control" name="lm_phone_1" autocomplete="e_phone_1"  value="{{ isset($lock_master) ? $lock_master->lm_phone_1 : old('lm_phone_1') }}" /> </div>
+                               @if ($errors->has('lm_phone_1'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('bike_m_phone_1') }}</strong>
+                                    <strong>{{ $errors->first('lm_phone_1') }}</strong>
                                 </span>
                             @endif
                             </div>
@@ -192,7 +192,7 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="bike_m_phone_2" autocomplete="bike_m_phone_2" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_phone_2 : old('bike_m_phone_2') }}" /> </div>
+                                    <input type="text" class="form-control" name="lm_phone_2" autocomplete="lm_phone_2" value="{{ isset($lock_master) ? $lock_master->lm_phone_2 : old('lm_phone_2') }}" /> </div>
                              </div>
                         </div>
                         <div class="form-group  margin-top-20">
@@ -202,23 +202,23 @@ async defer></script>
                             <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <input type="text" class="form-control" name="bike_m_shop" autocomplete="bike_m_shop" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_shop : old('bike_m_shop') }}" /> </div>
+                                    <input type="text" class="form-control" name="lm_shop" autocomplete="lm_shop" value="{{ isset($lock_master) ? $lock_master->lm_shop : old('lm_shop') }}" /> </div>
                              </div>
                         </div>
                         <div id="location_container">
                              <div class="locations_div">
-                                <div class="form-group" id="location_groubike_m_1">
+                                <div class="form-group" id="location_groulm_1">
                                     <label class="control-label col-md-3">Location
                                         <span class="required"> * </span></label>
                                     <div class="col-md-4">
                                         <div class="input-icon right">
                                         <i class="fa"></i>
-                                        <input type="text" id="location" name="bike_m_location" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_location : old('bike_m_location') }}" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
-                                        <input type="hidden" class="location_input" name="bike_m_latitude" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_latitude : old('bike_m_latitude') }}" id="latitude_input" />
-                                        <input type="hidden" class="location_input" name="bike_m_longitude" value="{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_longitude : old('bike_m_longitude') }}" id="longitude_input" />
-                                        @if ($errors->has('bike_m_location'))
+                                        <input type="text" id="location" name="lm_location" value="{{ isset($lock_master) ? $lock_master->lm_location : old('lm_location') }}" class="form-control E_location" placeholder="Enter a location" onFocus=""/>
+                                        <input type="hidden" class="location_input" name="lm_latitude" value="{{ isset($lock_master) ? $lock_master->lm_latitude : old('lm_latitude') }}" id="latitude_input" />
+                                        <input type="hidden" class="location_input" name="lm_longitude" value="{{ isset($lock_master) ? $lock_master->lm_longitude : old('lm_longitude') }}" id="longitude_input" />
+                                        @if ($errors->has('lm_location'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('bike_m_location') }}</strong>
+                                    <strong>{{ $errors->first('lm_location') }}</strong>
                                 </span>
                             @endif
                                         </div>
@@ -232,10 +232,10 @@ async defer></script>
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <textarea name="bike_m_description" class="form-control" rows="5" data-error-container="#editor_error">{{ isset($bike_mechanic) ? $bike_mechanic->bike_m_description : old('bike_m_description') }}</textarea>
-                               @if ($errors->has('bike_m_description'))
+                                <textarea name="lm_description" class="form-control" rows="5" data-error-container="#editor_error">{{ isset($lock_master) ? $lock_master->lm_description : old('lm_description') }}</textarea>
+                               @if ($errors->has('lm_description'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('bike_m_description') }}</strong>
+                                    <strong>{{ $errors->first('lm_description') }}</strong>
                                 </span>
                             @endif
                                 <div id="editor_error"> </div>

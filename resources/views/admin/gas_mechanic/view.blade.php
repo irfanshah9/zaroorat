@@ -23,7 +23,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="">Bike Mechanic Management</a>
+                    <a href="">Gas Mechanic Management</a>
                 </li>
             </ul>
         </div>
@@ -36,10 +36,10 @@
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="icon-settings font-dark"></i>
-                            <span class="caption-subject font-dark sbold uppercase">Bike Mechanic Management</span>
+                            <span class="caption-subject font-dark sbold uppercase">Gas Mechanic Management</span>
                         </div>
                         <div class="actions">
-                            <a class="btn btn-sm green table-group-action-submit" href="{{url('admin/bike_mechanic/create')}}"> Add New Bike Mechanic</a>
+                            <a class="btn btn-sm green table-group-action-submit" href="{{url('admin/gas_mechanic/create')}}"> Add New Gas Mechanic</a>
                             <a style="" class="btn red disabled btnMultiDelete btn-sm">Delete</a>
                             <div id="datatable_ajax_tools">
                             </div> 
@@ -47,7 +47,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="table-container">
-                            <table class="table table-striped table-bordered table-hover table-checkable" id="bike_mechanic_table">
+                            <table class="table table-striped table-bordered table-hover table-checkable" id="gas_mechanic_table">
                                 <thead>
                                     <tr role="row" class="heading">
                                         <th width=""><input type="checkbox" class="group-checkable2" id="gropu" data-set=".checkboxes2" /></th>
@@ -58,7 +58,7 @@
                                         <th width="">Shop Name</th>
                                         <th width="">location</th>
                                         <th width="">Description</th>
-                                        <th width="">Actions</th>
+                                        <th width="">Gastions</th>
                                     </tr>
                                     <tr role="row" class="filter">
                                         <td>
@@ -66,18 +66,18 @@
                                         <td>
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control form-filter input-sm" name="bike_m_name"> </td>
+                                            <input type="text" class="form-control form-filter input-sm" name="gas_m_name"> </td>
 
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="bike_m_father"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="gas_m_father"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="bike_m_contact"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="gas_m_contact"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="bike_m_shop"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="gas_m_shop"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="bike_m_location"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="gas_m_location"> </td>
                                         <td>
-                                          <input type="text" class="form-control form-filter input-sm" name="bike_m_description"> </td>
+                                          <input type="text" class="form-control form-filter input-sm" name="gas_m_description"> </td>
                                         <td>
                                             <span class="table_button table_search_button filter-submit margin-bottom">
                                                 <i class="fa fa-search"></i> </span>
@@ -97,7 +97,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#bike_mechanic_table').find('.group-checkable2').change(function() {
+        $('#gas_mechanic_table').find('.group-checkable2').change(function() {
 
             var set = jQuery(this).attr("data-set");
             var checked = jQuery(this).is(":checked");
@@ -114,7 +114,7 @@
             });
             jQuery.uniform.update(set);
         });
-        $('#bike_mechanic_table').on('click', 'tr .checkboxes2', function() {
+        $('#gas_mechanic_table').on('click', 'tr .checkboxes2', function() {
 
             if ($(this).is(':checked')) {
 
@@ -152,7 +152,7 @@
         });
 
     });
-    $('#bike_mechanic_table').keypress(function(e) {
+    $('#gas_mechanic_table').keypress(function(e) {
         var code = e.keyCode || e.which;
 
         if (code === 13) {
@@ -164,7 +164,7 @@
 
     //Delete Multi
     $(document).on('click', '.btnMultiDelete', function() {
-        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected Bike Mechanics?", function(result) {
+        bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete selected Gas Mechanics?", function(result) {
             if (result == true) {
 
                 var checkedValues = $('input:checkbox:checked').map(function() {
@@ -174,7 +174,7 @@
                 $.ajax({
                 type: "DELETE",
                 data: {"id": checkedValues, token: "{{ csrf_token() }}", method: 'DELETE'},
-                url: "../bike_mechanic/"+checkedValues,
+                url: "../gas_mechanic/"+checkedValues,
                 dataType: "json",
                 success: function(response) {
                 location.reload();

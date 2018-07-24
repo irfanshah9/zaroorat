@@ -94,7 +94,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-bolt"></i>
                                     <span class="title">Electrician Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -109,7 +109,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/electrician/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-bolt"></i>
                                             <span class="title">View Electricians </span>
                                             <span class="selected"></span>
                                         </a>
@@ -122,7 +122,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/electrician/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-bolt"></i>
                                             <span class="title">Add New Electrician</span>
                                             <span class="selected"></span>
                                         </a>
@@ -137,7 +137,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-pied-piper"></i>
                                     <span class="title">Plumber Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -152,7 +152,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/plumber/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-pied-piper"></i>
                                             <span class="title">View Plumbers </span>
                                             <span class="selected"></span>
                                         </a>
@@ -165,7 +165,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/plumber/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-pied-piper"></i>
                                             <span class="title">Add New Plumber</span>
                                             <span class="selected"></span>
                                         </a>
@@ -180,7 +180,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-paint-brush"></i>
                                     <span class="title">Painter Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -195,7 +195,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/painter/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-paint-brush"></i>
                                             <span class="title">View Painters </span>
                                             <span class="selected"></span>
                                         </a>
@@ -208,7 +208,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/painter/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-paint-brush"></i>
                                             <span class="title">Add New Painter</span>
                                             <span class="selected"></span>
                                         </a>
@@ -223,7 +223,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-ship"></i>
                                     <span class="title">Car painter Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -238,7 +238,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/carpainter/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-ship"></i>
                                             <span class="title">View Car Painters </span>
                                             <span class="selected"></span>
                                         </a>
@@ -251,7 +251,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/carpainter/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-ship"></i>
                                             <span class="title">Add New Car Painter</span>
                                             <span class="selected"></span>
                                         </a>
@@ -266,7 +266,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-users"></i>
                                     <span class="title">Mason Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -281,7 +281,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/mason/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-users"></i>
                                             <span class="title">View Masons</span>
                                             <span class="selected"></span>
                                         </a>
@@ -294,7 +294,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/mason/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-users"></i>
                                             <span class="title">Add New Mason</span>
                                             <span class="selected"></span>
                                         </a>
@@ -309,7 +309,7 @@
                             ?>
                              <li class="nav-item custom start <?= $active; ?>">
                                 <a href="" class="nav-link nav-toggle">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fa fa-users"></i>
                                     <span class="title">Labour Management</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>    
@@ -324,7 +324,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/labour/show')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-users"></i>
                                             <span class="title">View Labours</span>
                                             <span class="selected"></span>
                                         </a>
@@ -337,7 +337,7 @@
                                     ?>
                                     <li class="nav-item start <?= $active; ?>">
                                         <a href="{{url('admin/labour/create')}}" class="nav-link nav-toggle">
-                                            <i class="fa fa-building"></i>
+                                            <i class="fa fa-users"></i>
                                             <span class="title">Add New Labour</span>
                                             <span class="selected"></span>
                                         </a>
@@ -468,6 +468,92 @@
                                         <a href="{{url('admin/bike_mechanic/create')}}" class="nav-link nav-toggle">
                                             <i class="fa fa-building"></i>
                                             <span class="title">Add New Mechanic</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'gas_mechanic') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-building"></i>
+                                    <span class="title">Gas Mechanic Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'gas_mechanic' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/bike_mechanic/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">View Gas Mechanics</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'gas_mechanic' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/gas_mechanic/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-building"></i>
+                                            <span class="title">Add New Mechanic</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                              <?php
+                            $active = '';
+                            if (Request::segment(1) == 'admin' && Request::segment(2) == 'lock_master') {
+                                $active = 'active';
+                            }
+                            ?>
+                             <li class="nav-item custom start <?= $active; ?>">
+                                <a href="" class="nav-link nav-toggle">
+                                    <i class="fa fa-lock"></i>
+                                    <span class="title">Lock Masters Management</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>    
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php
+                                    $active = '';
+                                   
+                                   if (Request::segment(2) == 'lock_master' && Request::segment(3) == 'show') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/lock_master/show')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-lock"></i>
+                                            <span class="title">View Lock Masters</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $active = '';
+                                    if (Request::segment(2) == 'lock_master' && Request::segment(3) == 'create') {
+                                    $active = 'active';
+                                    }
+                                    ?>
+                                    <li class="nav-item start <?= $active; ?>">
+                                        <a href="{{url('admin/lock_master/create')}}" class="nav-link nav-toggle">
+                                            <i class="fa fa-lock"></i>
+                                            <span class="title">Add New Master</span>
                                             <span class="selected"></span>
                                         </a>
                                     </li>

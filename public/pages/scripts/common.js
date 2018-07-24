@@ -151,3 +151,37 @@ return false;
 }
 });
 }
+/*DELETE Gas Mechanic*/
+function delete_gas_mechanic(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Gas Mechanic?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../gas_mechanic/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
+/*DELETE Lock MAster*/
+function delete_lock_master(id){
+bootbox.confirm("<h4>Confirmation!</h4>Are you sure to delete this Lock Master?", function(result) {
+if (result == true) {
+$.ajax({
+type: "DELETE",
+data: {"id": id, token: "{{ csrf_token() }}", method: 'DELETE'},
+url: "../lock_master/"+id,
+dataType: "json",
+success: function(response) {
+location.reload();
+return false;
+}
+});
+}
+});
+}
